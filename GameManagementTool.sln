@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManage.Logic", "GameManage.Logic\GameManage.Logic.csproj", "{C10115B5-C4A7-452C-B46A-7234AC4DC48C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManagementTool", "GameManagementTool\GameManagementTool.csproj", "{CBFE37F3-34F6-4FF1-9DBE-62FB701D8FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameManagementTool", "GameManagementTool\GameManagementTool.csproj", "{CBFE37F3-34F6-4FF1-9DBE-62FB701D8FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManage.DAL", "GameManage.DAL\GameManage.DAL.csproj", "{B547DDFD-DDB6-46D5-AF61-337DE05474B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CBFE37F3-34F6-4FF1-9DBE-62FB701D8FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBFE37F3-34F6-4FF1-9DBE-62FB701D8FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBFE37F3-34F6-4FF1-9DBE-62FB701D8FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
