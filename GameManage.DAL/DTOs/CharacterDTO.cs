@@ -18,5 +18,12 @@ namespace GameManage.DAL.DTOs
             Name = name;
             Score = score;
         }
+
+        public CharacterDTO(string name)
+        {
+            Character_Id = 0;
+            Name = name;
+            Score = 300;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameManage.DAL.DTOs;
 using GameManage.Logic.Models;
 
 namespace GameManage.Logic.Models
@@ -26,12 +27,12 @@ namespace GameManage.Logic.Models
 
         public void AddCharacter(Character character)
         {
-            Characters.Add(character);
+            Characters.Add(new CharacterDTO(character.Name));
         }
 
         public void RemoveCharacter(Character character)
         {
-            Characters.Add(character);
+            Characters.Remove(character);
         }
     }
 }
