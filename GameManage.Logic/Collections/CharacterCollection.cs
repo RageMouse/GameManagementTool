@@ -23,5 +23,15 @@ namespace GameManage.Logic.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AddCharacter(Character character)
+        {
+            Characters.Add(character);
+        }
+
+        public void RemoveCharacter(Character character)
+        {
+            Characters.Add(character);
+        }
     }
 }

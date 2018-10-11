@@ -22,5 +22,15 @@ namespace GameManage.Logic.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AddSpecialization(Specialization specialization)
+        {
+            Specializations.Add(specialization);
+        }
+
+        public void RemoveSpecialization(Specialization specialization)
+        {
+            Specializations.Remove(specialization);
+        }
     }
 }

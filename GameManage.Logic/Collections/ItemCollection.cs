@@ -22,5 +22,15 @@ namespace GameManage.Logic.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AddItem(Item item)
+        {
+            Items.Add(item);
+        }
+
+        public void AddMonster(Item item)
+        {
+            Items.Add(item);
+        }
     }
 }

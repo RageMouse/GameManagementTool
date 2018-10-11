@@ -22,5 +22,15 @@ namespace GameManage.Logic.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AddRace(Race races)
+        {
+            Races.Add(races);
+        }
+
+        public void RemoveRace(Race race)
+        {
+            Races.Remove(race);
+        }
     }
 }
