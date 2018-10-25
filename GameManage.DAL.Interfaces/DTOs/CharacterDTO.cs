@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameManage.DAL.DTOs
+﻿namespace GameManage.DAL.Interfaces.DTOs
 {
     public struct CharacterDTO
     {
@@ -17,13 +11,6 @@ namespace GameManage.DAL.DTOs
             Character_Id = character_Id;
             Name = name;
             Score = score;
-        }
-
-        public CharacterDTO(string name)
-        {
-            Character_Id = 0;
-            Name = name;
-            Score = 300;
         }
     }
 }

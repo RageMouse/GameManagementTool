@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameManagementTool", "GameM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManage.DAL", "GameManage.DAL\GameManage.DAL.csproj", "{B547DDFD-DDB6-46D5-AF61-337DE05474B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManage.DAL.Interfaces", "GameManage.DAL.Interfaces\GameManage.DAL.Interfaces.csproj", "{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManage.DAL.Factory", "GameManage.DAL.Factory\GameManage.DAL.Factory.csproj", "{F213D11F-EFB9-4C43-8FE9-050A72F9CF4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B547DDFD-DDB6-46D5-AF61-337DE05474B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F213D11F-EFB9-4C43-8FE9-050A72F9CF4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F213D11F-EFB9-4C43-8FE9-050A72F9CF4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F213D11F-EFB9-4C43-8FE9-050A72F9CF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F213D11F-EFB9-4C43-8FE9-050A72F9CF4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

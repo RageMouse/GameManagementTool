@@ -41,9 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\CharacterDTO.cs" />
+    <Compile Include="MSSQL\CharacterMSSQLContext.cs" />
+    <Compile Include="MSSQL\ItemMSSQLContext.cs" />
+    <Compile Include="MSSQL\MonsterMSSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GameManage.DAL.Interfaces\GameManage.DAL.Interfaces.csproj">
+      <Project>{C03E2B0F-A1DD-47A3-AC0D-F91F2D15E6BD}</Project>
+      <Name>GameManage.DAL.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
