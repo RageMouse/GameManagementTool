@@ -46,6 +46,8 @@
     <Compile Include="Collections\MonsterCollection.cs" />
     <Compile Include="Collections\RaceCollection.cs" />
     <Compile Include="Collections\SpecializationCollection.cs" />
+    <Compile Include="Interfaces\ICharacter.cs" />
+    <Compile Include="Interfaces\ICharacterCollection.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Monster.cs" />

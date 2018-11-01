@@ -8,7 +8,7 @@ using GameManage.DAL.Interfaces.DTOs;
 
 namespace GameManage.DAL.Interfaces.Interfaces
 {
-    public interface ICharacterCollectionContext
+    public interface ICharacterContext
     {
         List<CharacterDTO> GetCharacters(CharacterDTO characters);
         void AddCharacter(CharacterDTO character);

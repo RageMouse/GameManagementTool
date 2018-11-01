@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameManage.DAL.Interfaces.DTOs;
 using GameManage.DAL.Interfaces.Interfaces;
 
-namespace GameManage.DAL.MSSQL
+namespace GameManage.DAL.Memory
 {
-    public class MonsterContext : IMonsterCollectionContext
+    public class MonsterContext : IMonsterContext
     {
         public List<MonsterDTO> GetMonsters(MonsterDTO monsters)
         {

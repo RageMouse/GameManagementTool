@@ -1,38 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameManage.DAL.DTOs;
 using GameManage.DAL.Factory;
+using GameManage.DAL.Interfaces.DTOs;
 using GameManage.DAL.Interfaces.Interfaces;
+using GameManage.Logic.Interfaces;
 
 namespace GameManage.Logic.Models
 {
-    class CharacterCollection
+    public class CharacterCollection : ICharacterCollection
     {
-        private readonly ICharacterCollectionContext database = CharacterFactory.GetCharacterCollectionContext();
+        private readonly ICharacterContext database = CharacterFactory.GetCharacterCollection();
+        public bool HasBeenAdded { get; set; }
 
         //Properties
-        public List<Character> Characters { get; private set; }
+        public List<CharacterDTO> Characters { get; private set; }
 
         //Constructors
         public CharacterCollection()
         {
-            Characters = GetCharacters();
+            Characters = new List<CharacterDTO>();
         }
 
         //Methods
-        public List<Character> GetCharacters()
-        {
-            throw new NotImplementedException();
-        }
 
-        public void AddCharacter(CharacterDTO character)
+        public bool AddCharacter(Character character)
         {
-            database.AddCharacter(character);
+            int maxLength = 20;
+            if (maxLength <= character.Name.Length || string.IsNullOrEmpty(character.Name))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            database.AddCharacter(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score));
+
+            return HasBeenAdded = true;
         }
 
         public void RemoveCharacter(CharacterDTO character)
         {
             database.RemoveCharacter(character);
+        }
+
+        public List<CharacterDTO> GetCharacters(CharacterDTO characters)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MSSQL\CharacterMSSQLContext.cs" />
-    <Compile Include="MSSQL\ItemMSSQLContext.cs" />
-    <Compile Include="MSSQL\MonsterMSSQLContext.cs" />
+    <Compile Include="Memory\CharacterContext.cs" />
+    <Compile Include="Memory\ItemContext.cs" />
+    <Compile Include="Memory\MonsterContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

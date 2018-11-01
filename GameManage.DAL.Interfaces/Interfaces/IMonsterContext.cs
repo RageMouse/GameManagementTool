@@ -7,10 +7,10 @@ using GameManage.DAL.Interfaces.DTOs;
 
 namespace GameManage.DAL.Interfaces.Interfaces
 {
-    public interface IItemCollectionContext
+    public interface IMonsterContext
     {
-        List<ItemDTO> GetItems(ItemDTO items);
-        void AddItem(ItemDTO item);
-        void RemoveItem(ItemDTO item);
+        List<MonsterDTO> GetMonsters(MonsterDTO monsters);
+        void AddMonster(MonsterDTO monster);
+        void RemoveMonster(MonsterDTO monster);
     }
 }

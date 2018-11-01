@@ -10,7 +10,7 @@ namespace GameManage.Logic.Models
 {
     class ItemCollection
     {
-        private readonly IItemCollectionContext database = ItemFactory.GetItemCollectionContext();
+        private readonly IItemContext database = ItemFactory.GetItemCollectionContext();
 
         //Properties
         public List<Item> Items { get; private set; }

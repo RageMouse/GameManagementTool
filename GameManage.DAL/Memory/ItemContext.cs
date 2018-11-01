@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameManage.DAL.Interfaces.DTOs;
 using GameManage.DAL.Interfaces.Interfaces;
 
-namespace GameManage.DAL.MSSQL
+namespace GameManage.DAL.Memory
 {
-    public class ItemContext : IItemCollectionContext
+    public class ItemContext : IItemContext
     {
+        private List<ItemDTO> Items { get; set; }
+
         public List<ItemDTO> GetItems(ItemDTO items)
         {
             throw new System.NotImplementedException();
@@ -16,12 +15,12 @@ namespace GameManage.DAL.MSSQL
 
         public void AddItem(ItemDTO item)
         {
-            throw new System.NotImplementedException();
+            Items.Add(item);
         }
 
         public void RemoveItem(ItemDTO item)
         {
-            throw new System.NotImplementedException();
+            Items.Remove(item);
         }
     }
 }
