@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Memory\CharacterContext.cs" />
-    <Compile Include="Memory\ItemContext.cs" />
-    <Compile Include="Memory\MonsterContext.cs" />
+    <Compile Include="Memory\CharacterMemoryContext.cs" />
+    <Compile Include="Memory\ItemMemoryContext.cs" />
+    <Compile Include="Memory\MonsterMemoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

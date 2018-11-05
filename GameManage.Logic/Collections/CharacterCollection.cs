@@ -9,7 +9,7 @@ namespace GameManage.Logic.Models
 {
     public class CharacterCollection : ICharacterCollection
     {
-        private readonly ICharacterContext database = CharacterFactory.GetCharacterCollection();
+        private readonly ICharacterContext database = CharacterFactory.GetCharacterCollectionContext();
         public bool HasBeenAdded { get; set; }
 
         //Properties
@@ -26,7 +26,7 @@ namespace GameManage.Logic.Models
         public bool AddCharacter(Character character)
         {
             int maxLength = 20;
-            if (maxLength <= character.Name.Length || string.IsNullOrEmpty(character.Name))
+            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name))
             {
                 throw new ArgumentOutOfRangeException();
             }

@@ -11,9 +11,9 @@ namespace GameManage.DAL.Factory
 {
     public static class CharacterFactory
     {
-        public static ICharacterContext GetCharacterCollection()
+        public static ICharacterContext GetCharacterCollectionContext()
         {
-            return new CharacterContext();
+            return new CharacterMemoryContext();
         }
     }
 }

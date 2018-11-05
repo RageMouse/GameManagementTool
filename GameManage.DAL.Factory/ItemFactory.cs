@@ -12,7 +12,7 @@ namespace GameManage.DAL.Factory
     {
         public static IItemContext GetItemCollectionContext()
         {
-            return new ItemContext();
+            return new ItemMemoryContext();
         }
     }
 }

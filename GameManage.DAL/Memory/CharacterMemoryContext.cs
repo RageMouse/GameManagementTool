@@ -5,7 +5,7 @@ using GameManage.DAL.Interfaces.Interfaces;
 
 namespace GameManage.DAL.Memory
 {
-    public class CharacterContext : ICharacterContext
+    public class CharacterMemoryContext : ICharacterContext
     {
         private ICharacterContext Context { get; }
 

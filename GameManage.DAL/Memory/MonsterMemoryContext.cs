@@ -5,7 +5,7 @@ using GameManage.DAL.Interfaces.Interfaces;
 
 namespace GameManage.DAL.Memory
 {
-    public class MonsterContext : IMonsterContext
+    public class MonsterMemoryContext : IMonsterContext
     {
         public List<MonsterDTO> GetMonsters(MonsterDTO monsters)
         {

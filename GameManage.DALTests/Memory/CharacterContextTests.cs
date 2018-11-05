@@ -36,7 +36,6 @@ namespace GameManage.Memory.Tests
             Character character = new Character(0, "", DateTime.Now, 200);
             //Act & Assert (Expects an Exception)
             characterCollection.AddCharacter(character);
-            bool addCharacter = characterCollection.AddCharacter(character);
         }
     }
 }

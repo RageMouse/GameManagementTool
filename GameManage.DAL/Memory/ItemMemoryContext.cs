@@ -4,7 +4,7 @@ using GameManage.DAL.Interfaces.Interfaces;
 
 namespace GameManage.DAL.Memory
 {
-    public class ItemContext : IItemContext
+    public class ItemMemoryContext : IItemContext
     {
         private List<ItemDTO> Items { get; set; }
 
