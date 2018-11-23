@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameManage.DAL.Factory;
 using GameManage.DAL.Interfaces.Interfaces;
 
 namespace GameManage.Logic.Models
 {
     class ItemCollection
     {
-        private readonly IItemContext database = ItemFactory.GetItemCollectionContext();
 
         //Properties
         public List<Item> Items { get; private set; }

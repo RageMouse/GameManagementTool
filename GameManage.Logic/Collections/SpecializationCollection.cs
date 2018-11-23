@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameManage.Logic.Interfaces;
 
 namespace GameManage.Logic.Models
 {
-    class SpecializationCollection
+    public class SpecializationCollection : ISpecializationCollection
     {
         //Properties
         public List<Specialization> Specializations { get; private set; }

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +51,7 @@
     <Compile Include="Collections\SpecializationCollection.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
     <Compile Include="Interfaces\ICharacterCollection.cs" />
+    <Compile Include="Interfaces\ISpecializationCollection.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Monster.cs" />
@@ -56,10 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameManage.DAL.Factory\GameManage.DAL.Factory.csproj">
-      <Project>{f213d11f-efb9-4c43-8fe9-050a72f9cf4e}</Project>
-      <Name>GameManage.DAL.Factory</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GameManage.DAL.Interfaces\GameManage.DAL.Interfaces.csproj">
       <Project>{c03e2b0f-a1dd-47a3-ac0d-f91f2d15e6bd}</Project>
       <Name>GameManage.DAL.Interfaces</Name>

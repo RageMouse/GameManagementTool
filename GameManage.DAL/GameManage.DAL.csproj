@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionStringBuilder.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Memory\CharacterMemoryContext.cs" />
     <Compile Include="Memory\ItemMemoryContext.cs" />
     <Compile Include="Memory\MonsterMemoryContext.cs" />
+    <Compile Include="MSSQL\CharacterMSSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

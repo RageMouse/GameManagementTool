@@ -18,8 +18,8 @@ namespace GameManage.Memory.Tests
         public void AddCharacterTest()
         {
             //Arrange
-            CharacterCollection characterCollection = new CharacterCollection();
-            Character character = new Character(0, "John", DateTime.Now, 200);
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            Character character = new Character(0, "John", DateTime.Now, 1, 200);
             //Act
             characterCollection.AddCharacter(character);
             //Assert
@@ -32,8 +32,8 @@ namespace GameManage.Memory.Tests
         public void AddCharacterNoNameTest()
         {
             //Arrange
-            CharacterCollection characterCollection = new CharacterCollection();
-            Character character = new Character(0, "", DateTime.Now, 200);
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            Character character = new Character(0, "", DateTime.Now, 1, 200);
             //Act & Assert (Expects an Exception)
             characterCollection.AddCharacter(character);
         }
