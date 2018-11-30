@@ -16,11 +16,6 @@ namespace GameManage.Logic.Models
         public List<CharacterDTO> Characters { get; private set; }
 
         //Constructors
-        public CharacterCollection()
-        {
-            Characters = new List<CharacterDTO>();
-        }
-
         public CharacterCollection(ICharacterContext context)
         {
             characterContext = context;

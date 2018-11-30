@@ -47,6 +47,7 @@
     <Compile Include="Memory\ItemMemoryContext.cs" />
     <Compile Include="Memory\MonsterMemoryContext.cs" />
     <Compile Include="MSSQL\CharacterMSSQLContext.cs" />
+    <Compile Include="MSSQL\SpecializationMSSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

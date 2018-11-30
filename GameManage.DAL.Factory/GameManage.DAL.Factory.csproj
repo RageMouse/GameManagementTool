@@ -48,6 +48,7 @@
     <Compile Include="ItemFactory.cs" />
     <Compile Include="MonsterFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecializationFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameManage.DAL.Interfaces\GameManage.DAL.Interfaces.csproj">

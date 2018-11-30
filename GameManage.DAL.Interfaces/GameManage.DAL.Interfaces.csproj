@@ -44,9 +44,11 @@
     <Compile Include="DTOs\CharacterDTO.cs" />
     <Compile Include="DTOs\ItemDTO.cs" />
     <Compile Include="DTOs\MonsterDTO.cs" />
+    <Compile Include="DTOs\SpecializationDTO.cs" />
     <Compile Include="Interfaces\ICharacterContext.cs" />
     <Compile Include="Interfaces\IItemContext.cs" />
     <Compile Include="Interfaces\IMonsterContext.cs" />
+    <Compile Include="Interfaces\ISpecializationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
