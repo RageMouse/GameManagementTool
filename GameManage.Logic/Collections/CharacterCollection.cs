@@ -40,9 +40,22 @@ namespace GameManage.Logic.Models
             characterContext.RemoveCharacter(character);
         }
 
-        public List<CharacterDTO> GetCharacters(CharacterDTO characters)
+        public Character ConvertCharacter(CharacterDTO character)
         {
-            throw new NotImplementedException();
+            return new Character(character.Specialization_Id, character.Name, character.CreatedOn, character.Specialization_Name, character.Score);
+        }
+
+        public List<Character> GetAllCharacters()
+        {
+            List<Character> users = new List<Character>();
+
+            foreach (CharacterDTO characterDto in characterContext.GetCharacters())
+            {
+                Character character = ConvertCharacter(characterDto);
+                users.Add(character);
+            }
+
+            return users;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,41 @@ using GameManage.DAL.Interfaces.Interfaces;
 
 namespace GameManage.DAL.MSSQL
 {
-     public class CharacterMSSQLContext : ICharacterContext
+    public class CharacterMSSQLContext : ICharacterContext
     {
-        public List<CharacterDTO> GetCharacters(CharacterDTO characters)
+        public List<CharacterDTO> GetCharacters()
         {
-            throw new NotImplementedException();
+            List<CharacterDTO> characters = new List<CharacterDTO>();
+            try
+            {
+                using (SqlConnection connection = Database.getConnection())
+                {
+                    using (SqlCommand command = new SqlCommand("ShowCharacters", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        connection.Open();
+                        foreach (DbDataRecord record in command.ExecuteReader())
+                        {
+                            CharacterDTO user = new CharacterDTO(
+                                record.GetInt32(record.GetOrdinal("CharacterId")),
+                                record.GetString(record.GetOrdinal("CharacterName")),
+                                record.GetDateTime(record.GetOrdinal("CreatedOn")),
+                                record.GetInt32(record.GetOrdinal("Score")),
+                                record.GetString(record.GetOrdinal("SpecializationName"))
+                            );
+                            characters.Add(user);
+                        }
+                    }
+                }
+                return characters;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private readonly string _connectionstring;
@@ -26,27 +57,27 @@ namespace GameManage.DAL.MSSQL
 
         public void AddCharacter(CharacterDTO character)
         {
-                try
+            try
+            {
+                using (SqlConnection connection = Database.getConnection())
                 {
-                    using (SqlConnection connection = Database.getConnection())
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("dbo.AddCharacter", connection))
                     {
-                        connection.Open();
-                        using (SqlCommand command = new SqlCommand("dbo.AddCharacter", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("Name", character.Name);
-                            command.Parameters.AddWithValue("CreatedOn", character.CreatedOn);
-                            command.Parameters.AddWithValue("Specialization_Id", character.Specialization_Id);
-                            command.Parameters.AddWithValue("Score", character.Score);
-                            command.ExecuteNonQuery();
-                        }
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("Name", character.Name);
+                        command.Parameters.AddWithValue("CreatedOn", character.CreatedOn);
+                        command.Parameters.AddWithValue("Specialization_Id", character.Specialization_Id);
+                        command.Parameters.AddWithValue("Score", character.Score);
+                        command.ExecuteNonQuery();
                     }
                 }
-                catch (Exception e)
-                {
-                    //todo a good exception
-                    Console.WriteLine(e);
-                }
+            }
+            catch (Exception e)
+            {
+                //todo a good exception
+                Console.WriteLine(e);
+            }
         }
 
         public void RemoveCharacter(CharacterDTO character)

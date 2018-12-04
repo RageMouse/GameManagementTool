@@ -12,12 +12,12 @@ namespace GameManage.Logic.Models
     public class SpecializationCollection : ISpecializationCollection
     {
         //Properties
-        public List<Specialization> Specializations { get; private set; }
+        public List<Specialization_Id> Specializations { get; private set; }
 
         private ISpecializationContext specializationContext;
 
         //Constructors
-        public SpecializationCollection(List<Specialization> specializations)
+        public SpecializationCollection(List<Specialization_Id> specializations)
         {
             Specializations = GetSpecializations();
         }
@@ -28,32 +28,38 @@ namespace GameManage.Logic.Models
         }
 
         //Methods
-        public List<Specialization> GetSpecializations()
+        public List<Specialization_Id> GetSpecializations()
         {
             throw new NotImplementedException();
         }
 
-        public void AddSpecialization(Specialization specialization)
+        public void AddSpecialization(Specialization_Id specialization)
         {
             Specializations.Add(specialization);
         }
 
-        public void RemoveSpecialization(Specialization specialization)
+        public void RemoveSpecialization(Specialization_Id specialization)
         {
             Specializations.Remove(specialization);
         }
 
-        public List<Specialization> GetAll()
+        public List<Specialization_Id> GetAll()
         {
             List<SpecializationDTO> SpecializationDTO = specializationContext.GetAll();
-            List<Specialization> AllSpecializations = new List<Specialization>();
+            List<Specialization_Id> AllSpecializations = new List<Specialization_Id>();
             foreach (SpecializationDTO specializationDto in SpecializationDTO)
             {
-                Specialization specialization = new Specialization(specializationDto.Id, specializationDto.Name, specializationDto.Description, specializationDto.HealthPoints, specializationDto.AttackPoints);
+                Specialization_Id specialization = new Specialization_Id(specializationDto.Id, specializationDto.Name, specializationDto.Description, specializationDto.HealthPoints, specializationDto.AttackPoints);
                 AllSpecializations.Add(specialization);
             }
 
             return AllSpecializations;
+        }
+
+        public Specialization_Id GetById(int Id)
+        {
+            SpecializationDTO specialization = specializationContext.GetById(Id);
+            return new Specialization_Id(specialization.Id, specialization.Name);
         }
     }
 }

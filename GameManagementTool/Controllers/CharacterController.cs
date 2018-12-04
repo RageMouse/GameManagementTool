@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GameManage.DAL.Factory;
+using GameManage.DAL.Interfaces.DTOs;
 using GameManage.Logic.Interfaces;
 using GameManage.Logic.Models;
 using GameManagementTool.Models;
@@ -26,12 +27,10 @@ namespace GameManagementTool.Controllers
 
         public IActionResult Index()
         {
-            AddCharacterViewModel model = new AddCharacterViewModel()
-            {
-                //todo make function
-                //AllSpecializations = SpecializationCollection.GetAllSpecializations()
-            };
-            return View();
+            ShowAllCharactersViewModel model = new ShowAllCharactersViewModel();
+            model.Characters = _characterFactory.CharacterCollection().GetAllCharacters();
+
+            return View(model);
         }
 
         [HttpGet]
@@ -51,7 +50,7 @@ namespace GameManagementTool.Controllers
         public IActionResult AddNewCharacter(AddCharacterViewModel model)
         {
             ICharacterCollection characterCollection = _characterFactory.CharacterCollection();
-            characterCollection.AddCharacter(new Character(model.Name));
+            characterCollection.AddCharacter(new Character(model.Name, model.SpecializationId));
             return RedirectToAction("Index", "Character");
         }
     }

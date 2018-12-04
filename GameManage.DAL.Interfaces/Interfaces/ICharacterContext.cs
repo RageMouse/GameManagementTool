@@ -10,7 +10,7 @@ namespace GameManage.DAL.Interfaces.Interfaces
 {
     public interface ICharacterContext
     {
-        List<CharacterDTO> GetCharacters(CharacterDTO characters);
+        List<CharacterDTO> GetCharacters();
         void AddCharacter(CharacterDTO character);
         void RemoveCharacter(CharacterDTO character);
     }

@@ -10,5 +10,6 @@ namespace GameManage.DAL.Interfaces.Interfaces
     public interface ISpecializationContext
     {
         List<SpecializationDTO> GetAll();
+        SpecializationDTO GetById(int id);
     }
 }

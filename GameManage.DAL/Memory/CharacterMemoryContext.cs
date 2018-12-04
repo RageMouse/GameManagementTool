@@ -11,8 +11,8 @@ namespace GameManage.DAL.Memory
 
         List<CharacterDTO> character = new List<CharacterDTO>();
 
-        public List<CharacterDTO> GetCharacters(CharacterDTO characters)
-        {   
+        public List<CharacterDTO> GetCharacters()
+        {
             throw new NotImplementedException();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
@@ -57,6 +58,39 @@ namespace GameManage.DAL.MSSQL
             }
 
             return specializations;
+        }
+
+        public SpecializationDTO GetById(int id)
+        {
+            List<SpecializationDTO> specializations = new List<SpecializationDTO>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionstring))
+                {
+                    SqlCommand cmd = new SqlCommand("GetSpecializationById", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@specializationID", id);
+
+                    foreach (DbDataRecord record in cmd.ExecuteReader())
+                    {
+                        SpecializationDTO specialization = new SpecializationDTO
+                        (
+                            record.GetInt32(record.GetOrdinal("id"))
+                        );
+                        specializations.Add(specialization);
+                    }
+                }
+                return specializations[0];
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

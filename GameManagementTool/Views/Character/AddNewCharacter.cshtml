@@ -17,10 +17,9 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <select asp-for="@Model.Name" asp-items="@(new SelectList(Model.AllSpecializations, "Id", "Name"))" class="form-control">
+            <select asp-for="@Model.SpecializationId" asp-items="@(new SelectList(Model.AllSpecializations, "Id", "Name"))" class="form-control">
                 <option>Selecteer een specialization</option>
             </select>
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

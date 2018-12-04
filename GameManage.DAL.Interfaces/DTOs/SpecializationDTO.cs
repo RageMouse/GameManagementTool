@@ -22,5 +22,14 @@ namespace GameManage.DAL.Interfaces.DTOs
             HealthPoints = healthPoints;
             AttackPoints = attackPoints;
         }
+
+        public SpecializationDTO(int id)
+        {
+            Id = id;
+            Name = null;
+            Description = null;
+            HealthPoints = 0;
+            AttackPoints = 0;
+        }
     }
 }
