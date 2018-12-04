@@ -9,7 +9,7 @@ namespace GameManage.Logic.Models
     public class CharacterCollection : ICharacterCollection
     {
         //Properties
-        private ICharacterContext characterContext;
+        private readonly ICharacterContext _characterContext;
 
         public bool HasBeenAdded { get; set; }
         
@@ -18,7 +18,7 @@ namespace GameManage.Logic.Models
         //Constructors
         public CharacterCollection(ICharacterContext context)
         {
-            characterContext = context;
+            _characterContext = context;
         }
 
         //Methods
@@ -30,17 +30,17 @@ namespace GameManage.Logic.Models
                 throw new ArgumentOutOfRangeException();
             }
 
-            characterContext.AddCharacter(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score, character.Specialization_Id));
+            _characterContext.AddCharacter(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score, character.Specialization_Id));
 
             return HasBeenAdded = true;
         }
 
         public void RemoveCharacter(CharacterDTO character)
         {
-            characterContext.RemoveCharacter(character);
+            _characterContext.RemoveCharacter(character);
         }
 
-        public Character ConvertCharacter(CharacterDTO character)
+        private Character ConvertCharacter(CharacterDTO character)
         {
             return new Character(character.Specialization_Id, character.Name, character.CreatedOn, character.Specialization_Name, character.Score);
         }
@@ -49,7 +49,7 @@ namespace GameManage.Logic.Models
         {
             List<Character> users = new List<Character>();
 
-            foreach (CharacterDTO characterDto in characterContext.GetCharacters())
+            foreach (CharacterDTO characterDto in _characterContext.GetCharacters())
             {
                 Character character = ConvertCharacter(characterDto);
                 users.Add(character);

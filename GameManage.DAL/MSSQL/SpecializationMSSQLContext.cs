@@ -13,22 +13,9 @@ namespace GameManage.DAL.MSSQL
 {
     public class SpecializationMSSQLContext : ISpecializationContext
     {
-        public List<CharacterDTO> GetCharacters(CharacterDTO characters)
-        {
-            throw new NotImplementedException();
-        }
-
-        private readonly string _connectionstring;
-
-        public SpecializationMSSQLContext(string connectionstring)
-        {
-            _connectionstring = connectionstring;
-        }
-
         public List<SpecializationDTO> GetAll()
         {
             List<SpecializationDTO> specializations = new List<SpecializationDTO>();
-            SpecializationDTO specialization;
             string query = "SELECT * FROM Specialization";
 
             try
@@ -39,7 +26,7 @@ namespace GameManage.DAL.MSSQL
                     SqlCommand cmd = new SqlCommand(query, connection);
                     foreach (DbDataRecord record in cmd.ExecuteReader())
                     {
-                        specialization = new SpecializationDTO
+                        var specialization = new SpecializationDTO
                         (
                             record.GetInt32(record.GetOrdinal("id")),
                             record.GetString(record.GetOrdinal("name")),
@@ -49,6 +36,8 @@ namespace GameManage.DAL.MSSQL
                         );
                         specializations.Add(specialization);
                     }
+
+                    connection.Close();
                 }
             }
             catch (Exception e)
@@ -66,13 +55,13 @@ namespace GameManage.DAL.MSSQL
 
             try
             {
-                using (SqlConnection con = new SqlConnection(_connectionstring))
+                using (SqlConnection connection = Database.getConnection())
                 {
-                    SqlCommand cmd = new SqlCommand("GetSpecializationById", con)
+                    SqlCommand cmd = new SqlCommand("GetSpecializationById", connection)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-                    con.Open();
+                    connection.Open();
                     cmd.Parameters.AddWithValue("@specializationID", id);
 
                     foreach (DbDataRecord record in cmd.ExecuteReader())
@@ -83,7 +72,10 @@ namespace GameManage.DAL.MSSQL
                         );
                         specializations.Add(specialization);
                     }
+
+                    connection.Close();
                 }
+
                 return specializations[0];
             }
             catch (Exception e)

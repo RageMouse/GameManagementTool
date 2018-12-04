@@ -37,8 +37,11 @@ namespace GameManage.DAL.MSSQL
                             );
                             characters.Add(user);
                         }
+
+                        connection.Close();
                     }
                 }
+
                 return characters;
             }
             catch (Exception e)
@@ -46,13 +49,6 @@ namespace GameManage.DAL.MSSQL
                 Console.WriteLine(e);
                 throw;
             }
-        }
-
-        private readonly string _connectionstring;
-
-        public CharacterMSSQLContext(string connectionstring)
-        {
-            _connectionstring = connectionstring;
         }
 
         public void AddCharacter(CharacterDTO character)
@@ -71,6 +67,8 @@ namespace GameManage.DAL.MSSQL
                         command.Parameters.AddWithValue("Score", character.Score);
                         command.ExecuteNonQuery();
                     }
+
+                    connection.Close();
                 }
             }
             catch (Exception e)

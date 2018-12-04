@@ -11,7 +11,7 @@ namespace GameManage.Logic.Models
     {
 
         //Properties
-        public List<Item> Items { get; private set; }
+        private List<Item> Items { get; set; }
 
         //Constructors
         public ItemCollection(List<Item> items)
@@ -20,7 +20,7 @@ namespace GameManage.Logic.Models
         }
 
         //Methods
-        public List<Item> GetItems()
+        private List<Item> GetItems()
         {
             throw new NotImplementedException();
         }

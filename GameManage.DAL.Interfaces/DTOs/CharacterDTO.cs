@@ -4,31 +4,31 @@ namespace GameManage.DAL.Interfaces.DTOs
 {
     public struct CharacterDTO
     {
-        public readonly int Character_Id;
+        public readonly int CharacterId;
         public readonly string Name;
         public DateTime CreatedOn;
-        public readonly int Specialization_Id;
-        public readonly string Specialization_Name;
+        public readonly int SpecializationId;
+        public readonly string SpecializationName;
         public readonly int Score;
 
-        public CharacterDTO(int character_Id, string name, DateTime createdOn, int score, int specialization_Id)
+        public CharacterDTO(int characterId, string name, DateTime createdOn, int score, int specializationId)
         {
-            Character_Id = character_Id;
+            CharacterId = characterId;
             Name = name;
             CreatedOn = DateTime.Now;
-            Specialization_Id = specialization_Id;
+            SpecializationId = specializationId;
             Score = score;
-            Specialization_Name = null;
+            SpecializationName = null;
         }
 
-        public CharacterDTO(int character_Id, string name, DateTime createdOn, int score, string specialization_Name)
+        public CharacterDTO(int characterId, string name, DateTime createdOn, int score, string specializationName)
         {
-            Character_Id = character_Id;
+            CharacterId = characterId;
             Name = name;
             CreatedOn = createdOn;
-            Specialization_Id = 0;
+            SpecializationId = 0;
             Score = score;
-            Specialization_Name = specialization_Name;
+            SpecializationName = specializationName;
         }
     }
 }

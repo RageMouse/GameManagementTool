@@ -12,9 +12,9 @@ namespace GameManage.Logic.Models
     public class SpecializationCollection : ISpecializationCollection
     {
         //Properties
-        public List<Specialization_Id> Specializations { get; private set; }
+        private List<Specialization_Id> Specializations { get; set; }
 
-        private ISpecializationContext specializationContext;
+        private readonly ISpecializationContext _specializationContext;
 
         //Constructors
         public SpecializationCollection(List<Specialization_Id> specializations)
@@ -24,11 +24,11 @@ namespace GameManage.Logic.Models
 
         public SpecializationCollection(ISpecializationContext context)
         {
-            specializationContext = context;
+            _specializationContext = context;
         }
 
         //Methods
-        public List<Specialization_Id> GetSpecializations()
+        private List<Specialization_Id> GetSpecializations()
         {
             throw new NotImplementedException();
         }
@@ -45,7 +45,7 @@ namespace GameManage.Logic.Models
 
         public List<Specialization_Id> GetAll()
         {
-            List<SpecializationDTO> SpecializationDTO = specializationContext.GetAll();
+            List<SpecializationDTO> SpecializationDTO = _specializationContext.GetAll();
             List<Specialization_Id> AllSpecializations = new List<Specialization_Id>();
             foreach (SpecializationDTO specializationDto in SpecializationDTO)
             {
@@ -56,9 +56,9 @@ namespace GameManage.Logic.Models
             return AllSpecializations;
         }
 
-        public Specialization_Id GetById(int Id)
+        public Specialization_Id GetById(int id)
         {
-            SpecializationDTO specialization = specializationContext.GetById(Id);
+            SpecializationDTO specialization = _specializationContext.GetById(id);
             return new Specialization_Id(specialization.Id, specialization.Name);
         }
     }

@@ -16,20 +16,19 @@ namespace GameManage.DAL.Factory
     public class CharacterFactory
     {
         private readonly string _context;
-        private readonly string _connectionString;
 
         public CharacterFactory(IConfiguration configuration)
         {
             _context = configuration.GetSection("Database").GetSection("Type").Value;
-            _connectionString = configuration.GetConnectionString(_context);
+            configuration.GetConnectionString(_context);
         }
 
-        public ICharacterContext GetCharacterContext()
+        private ICharacterContext GetCharacterContext()
         {
             switch (_context)
             {
                 case "MSSQL":
-                    return new CharacterMSSQLContext(_connectionString);
+                    return new CharacterMSSQLContext();
                 case "MEMORY":
                     return new CharacterMemoryContext();
                 default:

@@ -28,7 +28,7 @@ namespace GameManage.DAL.Factory
             switch (_context)
             {
                 case "MSSQL":
-                    return new SpecializationMSSQLContext(_connectionString);
+                    return new SpecializationMSSQLContext();
                 default:
                     throw new NotImplementedException();
             }

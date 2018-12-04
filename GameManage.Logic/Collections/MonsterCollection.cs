@@ -9,7 +9,7 @@ namespace GameManage.Logic.Models
     class MonsterCollection
     {
         //Properties
-        public List<Monster> Monsters { get; private set; }
+        private List<Monster> Monsters { get; set; }
 
         //Constructors
         public MonsterCollection(List<Monster> monsters)
@@ -18,7 +18,7 @@ namespace GameManage.Logic.Models
         }
 
         //Methods
-        public List<Monster> GetMonsters()
+        private List<Monster> GetMonsters()
         {
             throw new NotImplementedException();
         }

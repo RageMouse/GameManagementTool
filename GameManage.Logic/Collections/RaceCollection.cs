@@ -9,7 +9,7 @@ namespace GameManage.Logic.Models
     class RaceCollection
     {
         //Properties
-        public List<Race> Races { get; private set; }
+        private List<Race> Races { get; set; }
 
         //Constructors
         public RaceCollection(List<Race> races)
@@ -18,7 +18,7 @@ namespace GameManage.Logic.Models
         }
 
         //Methods
-        public List<Race> GetRaces()
+        private List<Race> GetRaces()
         {
             throw new NotImplementedException();
         }
