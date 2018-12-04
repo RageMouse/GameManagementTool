@@ -42,7 +42,7 @@ namespace GameManage.Logic.Models
 
         private Character ConvertCharacter(CharacterDTO character)
         {
-            return new Character(character.Specialization_Id, character.Name, character.CreatedOn, character.Specialization_Name, character.Score);
+            return new Character(character.SpecializationId, character.Name, character.CreatedOn, character.SpecializationName, character.Score);
         }
 
         public List<Character> GetAllCharacters()

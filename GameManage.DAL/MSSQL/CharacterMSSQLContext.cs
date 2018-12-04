@@ -63,7 +63,7 @@ namespace GameManage.DAL.MSSQL
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("Name", character.Name);
                         command.Parameters.AddWithValue("CreatedOn", character.CreatedOn);
-                        command.Parameters.AddWithValue("Specialization_Id", character.Specialization_Id);
+                        command.Parameters.AddWithValue("Specialization_Id", character.SpecializationId);
                         command.Parameters.AddWithValue("Score", character.Score);
                         command.ExecuteNonQuery();
                     }
