@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameManage.Logic.Models
 {
-    public class Specialization_Id
+    public class Specialization
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
@@ -15,7 +15,7 @@ namespace GameManage.Logic.Models
         public int AttackPoints { get; private set; }
 
         //Constructor
-        public Specialization_Id(int id, string name, string description, int healthPoints, int attackPoints)
+        public Specialization(int id, string name, string description, int healthPoints, int attackPoints)
         {
             Id = id;
             Name = name;
@@ -24,7 +24,7 @@ namespace GameManage.Logic.Models
             AttackPoints = attackPoints;
         }
 
-        public Specialization_Id(int id, string name)
+        public Specialization(int id, string name)
         {
             Id = id;
             Name = name;

@@ -10,7 +10,7 @@ namespace GameManage.Logic.Interfaces
 {
     public interface ISpecializationCollection
     {
-        List<Specialization_Id> GetAll();
-        Specialization_Id GetById(int id);
+        List<Specialization> GetAll();
+        Specialization GetById(int id);
     }
 }

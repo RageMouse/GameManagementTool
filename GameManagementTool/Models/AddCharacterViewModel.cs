@@ -17,6 +17,6 @@ namespace GameManagementTool.Models
         //[Required(AllowEmptyStrings = false, ErrorMessage = "Specialization Required")]
         //public string Specialization { get; set; }
         public int SpecializationId { get; set; }
-        public List<Specialization_Id> AllSpecializations { get; set; }
+        public List<Specialization> AllSpecializations { get; set; }
     }
 }
