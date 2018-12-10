@@ -31,14 +31,26 @@ namespace GameManage.Logic.Models
             Id = id;
             Name = name;
             CreatedOn = createdOn;
-            Score = score;
             SpecializationName = specializationName;
+            Score = score;
         }
 
         public Character(string name, int specialization_Id)
         {
             Name = name;
             Specialization_Id = specialization_Id;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            var character = obj as Character;
+
+            if (character == null)
+            {
+                return false;
+            }
+
+            return this.Name.Equals(character.Name) && this.SpecializationName.Equals(character.SpecializationName);
         }
     }
 }

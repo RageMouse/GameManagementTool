@@ -25,14 +25,14 @@ namespace GameManage.Logic.Models
         public bool AddCharacter(Character character)
         {
             int maxLength = 20;
-            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name))
+            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name) || string.IsNullOrEmpty(character.SpecializationName))
             {
                 throw new ArgumentOutOfRangeException();
             }
 
             _characterContext.AddCharacter(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score, character.Specialization_Id));
 
-            return HasBeenAdded = true;
+            return true;
         }
 
         public void RemoveCharacter(CharacterDTO character)
@@ -40,8 +40,14 @@ namespace GameManage.Logic.Models
             _characterContext.RemoveCharacter(character);
         }
 
-        private Character ConvertCharacter(CharacterDTO character)
+        public Character ConvertCharacter(CharacterDTO character)
         {
+            int maxLength = 20;
+            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name) || string.IsNullOrEmpty(character.SpecializationName))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
             return new Character(character.SpecializationId, character.Name, character.CreatedOn, character.SpecializationName, character.Score);
         }
 

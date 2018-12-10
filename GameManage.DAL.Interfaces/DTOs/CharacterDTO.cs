@@ -21,14 +21,14 @@ namespace GameManage.DAL.Interfaces.DTOs
             SpecializationName = null;
         }
 
-        public CharacterDTO(int characterId, string name, DateTime createdOn, int score, string specializationName)
+        public CharacterDTO(int characterId, string name, DateTime createdOn, string specializationName, int score)
         {
             CharacterId = characterId;
             Name = name;
             CreatedOn = createdOn;
             SpecializationId = 0;
-            Score = score;
             SpecializationName = specializationName;
+            Score = score;
         }
     }
 }

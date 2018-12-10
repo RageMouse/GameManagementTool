@@ -19,7 +19,7 @@ namespace GameManage.Memory.Tests
         {
             //Arrange
             CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
-            Character character = new Character(0, "John", DateTime.Now, 1, 200);
+            Character character = new Character(0, "John", DateTime.Now, "Paladin", 200);
             //Act
             characterCollection.AddCharacter(character);
             //Assert
@@ -33,9 +33,57 @@ namespace GameManage.Memory.Tests
         {
             //Arrange
             CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
-            Character character = new Character(0, "", DateTime.Now, 1, 200);
+            Character character = new Character(0, "", DateTime.Now, "Paladin", 200);
             //Act & Assert (Expects an Exception)
             characterCollection.AddCharacter(character);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void AddCharacterNoSpecializationTest()
+        {
+            //Arrange
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            Character character = new Character(0, "John", DateTime.Now, "", 200);
+            //Act & Assert (Expects an Exception)
+            characterCollection.AddCharacter(character);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void AddCharacterNameTooLongTest()
+        {
+            //Arrange
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            Character character = new Character(0, Guid.NewGuid().ToString(), DateTime.Now, "Paladin", 200);
+            //Act & Assert (Expects an Exception)
+            characterCollection.AddCharacter(character);
+        }
+
+        [TestMethod]
+        public void ConvertCharacterDTOTest()
+        {
+            //Arrange
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            DateTime date = DateTime.Now;
+            CharacterDTO character = new CharacterDTO(0, "John", date, "Paladin", 200);
+            //Act
+            Character convertedCharacter = characterCollection.ConvertCharacter(character);
+            //Assert
+            Assert.AreEqual(new Character(0, "John", date, "Paladin", 200), convertedCharacter);
+        }
+
+        [TestMethod]
+        public void ConvertCharacterDTOFailTest()
+        {
+            //Arrange
+            CharacterCollection characterCollection = new CharacterCollection(new CharacterMemoryContext());
+            DateTime date = DateTime.Now;
+            CharacterDTO character = new CharacterDTO(0, "John", date, "Paladin", 200);
+            //Act
+            Character convertedCharacter = characterCollection.ConvertCharacter(character);
+            //Assert
+            Assert.AreNotEqual(new Character(0, "John", date, "Wizard", 200), convertedCharacter);
         }
     }
 }

@@ -32,8 +32,8 @@ namespace GameManage.DAL.MSSQL
                                 record.GetInt32(record.GetOrdinal("CharacterId")),
                                 record.GetString(record.GetOrdinal("CharacterName")),
                                 record.GetDateTime(record.GetOrdinal("CreatedOn")),
-                                record.GetInt32(record.GetOrdinal("Score")),
-                                record.GetString(record.GetOrdinal("SpecializationName"))
+                                record.GetString(record.GetOrdinal("SpecializationName")),
+                                record.GetInt32(record.GetOrdinal("Score"))
                             );
                             characters.Add(user);
                         }
