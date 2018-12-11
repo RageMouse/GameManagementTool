@@ -40,7 +40,7 @@ namespace GameManage.Logic.Models
             _characterContext.RemoveCharacter(character);
         }
 
-        public Character ConvertCharacter(CharacterDTO character)
+        internal Character ConvertCharacter(CharacterDTO character)
         {
             int maxLength = 20;
             if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name) || string.IsNullOrEmpty(character.SpecializationName))
