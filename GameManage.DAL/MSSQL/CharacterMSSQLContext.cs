@@ -21,21 +21,19 @@ namespace GameManage.DAL.MSSQL
                 using (SqlConnection connection = Database.getConnection())
                 {
                     using (SqlCommand command = new SqlCommand("ShowCharacters", connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    })
+                        {CommandType = CommandType.StoredProcedure})
                     {
                         connection.Open();
                         foreach (DbDataRecord record in command.ExecuteReader())
                         {
-                            CharacterDTO user = new CharacterDTO(
+                            CharacterDTO character = new CharacterDTO(
                                 record.GetInt32(record.GetOrdinal("CharacterId")),
                                 record.GetString(record.GetOrdinal("CharacterName")),
                                 record.GetDateTime(record.GetOrdinal("CreatedOn")),
                                 record.GetString(record.GetOrdinal("SpecializationName")),
                                 record.GetInt32(record.GetOrdinal("Score"))
                             );
-                            characters.Add(user);
+                            characters.Add(character);
                         }
 
                         connection.Close();
@@ -58,7 +56,7 @@ namespace GameManage.DAL.MSSQL
                 using (SqlConnection connection = Database.getConnection())
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("dbo.AddCharacter", connection))
+                    using (SqlCommand command = new SqlCommand("AddCharacter", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("Name", character.Name);
@@ -82,6 +80,71 @@ namespace GameManage.DAL.MSSQL
         {
             //todo write code
             throw new NotImplementedException();
+        }
+
+        public CharacterDTO GetById(int id)
+        {
+            List<CharacterDTO> characters = new List<CharacterDTO>();
+            CharacterDTO character;
+            try
+            {
+                using (SqlConnection connection = Database.getConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand("GetCharacterById", connection)
+                        {CommandType = CommandType.StoredProcedure})
+                    {
+                        cmd.Parameters.AddWithValue("@characterId", id);
+                        connection.Open();
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            foreach (DbDataRecord record in reader)
+                            {
+                                character = new CharacterDTO
+                                (
+                                    record.GetInt32(record.GetOrdinal("Id")),
+                                    record.GetString(record.GetOrdinal("Name")),
+                                    record.GetString(record.GetOrdinal("SpecializationName"))
+                                );
+                                characters.Add(character);
+                            }
+                        }
+                    }
+                }
+
+                character = characters.Single(u => u.CharacterId == id);
+                return character;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void Update(CharacterDTO character)
+        {
+            try
+            {
+                using (SqlConnection connection = Database.getConnection())
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("UpdateCharacter", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("Name", character.Name);
+                        command.Parameters.AddWithValue("Specialization_Id", character.SpecializationId);
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                //todo a good exception
+                Console.WriteLine(e);
+            }
         }
     }
 }

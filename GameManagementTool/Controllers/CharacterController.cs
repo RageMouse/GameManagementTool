@@ -53,5 +53,30 @@ namespace GameManagementTool.Controllers
             characterCollection.AddCharacter(new Character(model.Name, model.SpecializationId));
             return RedirectToAction("Index", "Character");
         }
+
+        public IActionResult Edit(int id)
+        {
+            Character character = _characterFactory.CharacterCollection().GetById(id);
+            ISpecializationCollection specializationCollection = _specializationFactory.SpecializationCollection();
+
+            ShowAllCharactersViewModel model = new ShowAllCharactersViewModel()
+            {
+                CharacterId = id,
+                Name = character.Name,
+                SpecializationName = character.SpecializationName,
+                AllSpecializations = specializationCollection.GetAll()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult SaveEdit(ShowAllCharactersViewModel model)
+        {
+            ICharacterCollection characterCollection = _characterFactory.CharacterCollection();
+            characterCollection.Update(new Character(model.Name, model.SpecializationId));
+
+            return RedirectToAction("Index", "Character");
+        }
     }
 }

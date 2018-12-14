@@ -30,5 +30,15 @@ namespace GameManage.DAL.Interfaces.DTOs
             SpecializationName = specializationName;
             Score = score;
         }
+
+        public CharacterDTO(int characterId, string name, string specializationName)
+        {
+            CharacterId = characterId;
+            Name = name;
+            CreatedOn = DateTime.Now;
+            SpecializationId = 0;
+            SpecializationName = specializationName;
+            Score = 0;
+        }
     }
 }

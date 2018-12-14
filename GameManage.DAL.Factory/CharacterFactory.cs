@@ -36,6 +36,7 @@ namespace GameManage.DAL.Factory
             }
         }
 
+        public ICharacter Character() => new Character();
         public ICharacterCollection CharacterCollection() => new CharacterCollection(GetCharacterContext());
     }
 }

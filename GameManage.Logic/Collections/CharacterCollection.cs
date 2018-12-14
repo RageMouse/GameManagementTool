@@ -48,7 +48,7 @@ namespace GameManage.Logic.Models
                 throw new ArgumentOutOfRangeException();
             }
 
-            return new Character(character.SpecializationId, character.Name, character.CreatedOn, character.SpecializationName, character.Score);
+            return new Character(character.CharacterId, character.Name, character.CreatedOn, character.SpecializationName, character.Score);
         }
 
         public List<Character> GetAllCharacters()
@@ -62,6 +62,18 @@ namespace GameManage.Logic.Models
             }
 
             return users;
+        }
+
+        public Character GetById(int id)
+        {
+            CharacterDTO characterDto = _characterContext.GetById(id);
+
+            return new Character(characterDto.CharacterId, characterDto.Name, characterDto.SpecializationName);
+        }
+
+        public void Update(Character character)
+        {
+            _characterContext.Update(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score, character.Specialization_Id));
         }
     }
 }

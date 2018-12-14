@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameManage.Logic.Models;
 
 namespace GameManage.Logic.Interfaces
 {
-    class ICharacter
+    public interface ICharacter
     {
     }
 }

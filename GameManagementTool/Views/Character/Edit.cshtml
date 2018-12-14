@@ -1,28 +1,29 @@
 ﻿@using GameManage.Logic.Models
-@model GameManagementTool.Models.AddCharacterViewModel
+@model GameManagementTool.Models.ShowAllCharactersViewModel
+
 
 @{
-    ViewData["Title"] = "AddNewCharacter";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>AddNewCharacter</h2>
+<h2>Edit</h2>
 
-<h4>AddCharacterViewModel</h4>
+<h4>Character</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddNewCharacter">
+        <form asp-action="SaveEdit" asp-controller="Character" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <select asp-for="@Model.SpecializationId" asp-items="@(new SelectList(Model.AllSpecializations, "Id", "Name"))" class="form-control">
+            <select asp-for="@Model.SpecializationId" asp-items="@(new SelectList(Model.AllSpecializations, "Id", "Name" ))" class="form-control">
                 <option>Selecteer een specialization</option>
             </select>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>

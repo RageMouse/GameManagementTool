@@ -25,5 +25,15 @@ namespace GameManage.DAL.Memory
         {
             character.Remove(characterDTO);
         }
+
+        public CharacterDTO GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(CharacterDTO character)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

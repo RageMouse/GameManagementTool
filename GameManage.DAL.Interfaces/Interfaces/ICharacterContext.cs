@@ -13,5 +13,7 @@ namespace GameManage.DAL.Interfaces.Interfaces
         List<CharacterDTO> GetCharacters();
         void AddCharacter(CharacterDTO character);
         void RemoveCharacter(CharacterDTO character);
+        CharacterDTO GetById(int id);
+        void Update(CharacterDTO character);
     }
 }

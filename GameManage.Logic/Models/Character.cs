@@ -4,10 +4,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameManage.Logic.Interfaces;
 
 namespace GameManage.Logic.Models
 {
-    public class Character
+    public class Character : ICharacter
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
@@ -39,6 +40,18 @@ namespace GameManage.Logic.Models
         {
             Name = name;
             Specialization_Id = specialization_Id;
+        }
+
+        public Character(int id, string name, string specializationName)
+        {
+            Id = id;
+            Name = name;
+            SpecializationName = SpecializationName;
+        }
+
+        public Character()
+        {
+
         }
 
         public override bool Equals(Object obj)

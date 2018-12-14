@@ -10,7 +10,8 @@ namespace GameManage.Logic.Interfaces
     public interface ICharacterCollection
     {
         bool AddCharacter(Character character);
-
         List<Character> GetAllCharacters();
+        Character GetById(int id);
+        void Update(Character character);
     }
 }

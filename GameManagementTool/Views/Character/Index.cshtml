@@ -1,6 +1,6 @@
 ﻿@using GameManage.Logic.Models
 @model GameManagementTool.Models.ShowAllCharactersViewModel
-<link href="@Url.Content("~/css/CharacterPage.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/css/CharacterPage.css")" rel="stylesheet" type="text/css"/>
 
 @{
     ViewData["Title"] = "Index";
@@ -29,6 +29,7 @@
             <td>@character.SpecializationName</td>
             <td>@character.Score</td>
             <td>@character.CreatedOn</td>
+            <td><a asp-action="Edit" asp-controller="Character" asp-route-id="@character.Id">EDIT</a></td>
         </tr>
     }
     </tbody>
