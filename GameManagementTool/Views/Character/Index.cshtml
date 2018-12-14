@@ -1,5 +1,6 @@
 ﻿@using GameManage.Logic.Models
 @model GameManagementTool.Models.ShowAllCharactersViewModel
+<link href="@Url.Content("~/css/CharacterPage.css")" rel="stylesheet" type="text/css" />
 
 @{
     ViewData["Title"] = "Index";
@@ -11,8 +12,8 @@
     <a class="btn btn-danger" role="button" aria-pressed="true" asp-action="AddNewCharacter">CREATE NEW</a>
 </p>
 <input type="text" id="myInput" onkeyup="SearchCharacterName()" placeholder="Search for your character.." title="Type in a character name">
-<table id="adminTable" class="table table-hover table-dark">
-    <thead>
+<table id="adminTable" class="table table-hover table-striped">
+    <thead class="thead-dark">
     <tr>
         <th>Name</th>
         <th>Specializaton</th>
