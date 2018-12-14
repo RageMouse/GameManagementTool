@@ -16,13 +16,11 @@ namespace GameManagementTool.Controllers
     {
         private readonly CharacterFactory _characterFactory;
         private readonly SpecializationFactory _specializationFactory;
-        private readonly IConfiguration _configuration;
 
         public CharacterController(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _characterFactory = new CharacterFactory(_configuration);
-            _specializationFactory = new SpecializationFactory(_configuration);
+            _characterFactory = new CharacterFactory(configuration);
+            _specializationFactory = new SpecializationFactory(configuration);
         }
 
         public IActionResult Index()
