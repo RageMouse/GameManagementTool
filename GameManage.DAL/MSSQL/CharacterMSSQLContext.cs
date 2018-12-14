@@ -104,6 +104,7 @@ namespace GameManage.DAL.MSSQL
                                 (
                                     record.GetInt32(record.GetOrdinal("Id")),
                                     record.GetString(record.GetOrdinal("Name")),
+                                    record.GetInt32(record.GetOrdinal("SpecializationId")),
                                     record.GetString(record.GetOrdinal("SpecializationName"))
                                 );
                                 characters.Add(character);

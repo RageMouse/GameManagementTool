@@ -73,7 +73,7 @@ namespace GameManage.Logic.Models
 
         public void Update(Character character)
         {
-            _characterContext.Update(new CharacterDTO(character.Id, character.Name, character.CreatedOn, character.Score, character.Specialization_Id));
+            _characterContext.Update(new CharacterDTO(character.Id, character.Name, character.Specialization_Id, character.SpecializationName));
         }
     }
 }
