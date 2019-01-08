@@ -25,7 +25,7 @@ namespace GameManage.Logic.Models
         public bool AddCharacter(Character character)
         {
             int maxLength = 20;
-            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name) || string.IsNullOrEmpty(character.SpecializationName))
+            if (maxLength < character.Name.Length || string.IsNullOrEmpty(character.Name) || string.IsNullOrEmpty(character.Specialization_Id.ToString()))
             {
                 throw new ArgumentOutOfRangeException();
             }
