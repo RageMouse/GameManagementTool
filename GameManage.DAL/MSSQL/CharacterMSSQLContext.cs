@@ -133,6 +133,7 @@ namespace GameManage.DAL.MSSQL
                     using (SqlCommand command = new SqlCommand("UpdateCharacter", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("userId", character.CharacterId);
                         command.Parameters.AddWithValue("Name", character.Name);
                         command.Parameters.AddWithValue("Specialization_Id", character.SpecializationId);
                         command.ExecuteNonQuery();

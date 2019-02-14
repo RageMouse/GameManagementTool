@@ -12,8 +12,9 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="SaveEdit" asp-controller="Character" enctype="multipart/form-data" method="post">
+        <form asp-action="SaveEdit" asp-controller="Character" method="post"> 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CharacterId" name="CharacterId" value="@Model.CharacterId" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />

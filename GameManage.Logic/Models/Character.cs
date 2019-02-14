@@ -49,6 +49,13 @@ namespace GameManage.Logic.Models
             SpecializationName = SpecializationName;
         }
 
+        public Character(int id, string name, int specializationId)
+        {
+            Id = id;
+            Name = name;
+            Specialization_Id = specializationId;
+        }
+
         public Character()
         {
 

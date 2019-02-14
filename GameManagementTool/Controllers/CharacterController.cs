@@ -72,7 +72,7 @@ namespace GameManagementTool.Controllers
         public IActionResult SaveEdit(ShowAllCharactersViewModel model)
         {
             ICharacterCollection characterCollection = _characterFactory.CharacterCollection();
-            characterCollection.Update(new Character(model.Name, model.SpecializationId));
+            characterCollection.Update(new Character(model.CharacterId, model.Name, model.SpecializationId));
 
             return RedirectToAction("Index", "Character");
         }
